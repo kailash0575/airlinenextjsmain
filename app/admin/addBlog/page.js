@@ -7,7 +7,7 @@ const AddBlogComponent = dynamic(() => import("@/components/AddBlog"), {
 });
 
 const page = () => {
-
+  const context = typeof self !== 'undefined' ? self : globalThis;
   return (
     <>
       <AddBlog />

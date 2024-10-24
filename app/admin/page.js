@@ -1,7 +1,13 @@
+'use client'
 import AdminSideBar from "@/components/AdminSideBar";
-
+import { useEffect } from "react";
 const AdminPage = () => {
-
+  useEffect(() => {
+    // This code runs only in the browser
+    self.addEventListener('message', (event) => {
+      console.log(event);
+    });
+  }, []);
   return (
     <div className="flex gap-10 ">
       {" "}

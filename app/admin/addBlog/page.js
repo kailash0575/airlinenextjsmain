@@ -1,20 +1,20 @@
 "use client";
 import AdminSideBar from "@/components/AdminSideBar";
-import React, { useState, useRef, useMemo } from 'react';
-import JoditEditor from 'jodit-react';
+import React, { useState, useRef, useMemo , useEffect} from "react";
+import JoditEditor from "jodit-react";
 import { redirect, useRouter } from "next/navigation";
 
 // import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
-const Editor = dynamic(() => import('@/components/Editor'), {
-  ssr: false
-})
+const Editor = dynamic(() => import("@/components/Editor"), {
+  ssr: false,
+});
 import { useForm, Controller } from "react-hook-form";
 // import Editor from "@/components/Editor";
 const AddBlog = () => {
-  const savedToken = localStorage.getItem('token');
-  if (!savedToken) redirect('/')
+  const savedToken = localStorage.getItem("token");
+  if (!savedToken) redirect("/");
   const router = useRouter();
 
   const {
@@ -35,10 +35,9 @@ const AddBlog = () => {
     formData.append("meta_description", data.meta_description);
     formData.append("focus_keywords", data.focus_keywords);
     formData.append("title_tag", data.title_tag);
-    formData.append("blog_url", data.blog_url.split(' ').join('-'));
+    formData.append("blog_url", data.blog_url.split(" ").join("-"));
     formData.append("blog_description", data.blog_description);
     formData.append("image_alt_tag", data.image_alt_tag);
-
 
     console.log(formData);
     try {
@@ -51,16 +50,20 @@ const AddBlog = () => {
           },
         }
       );
-   
-      alert("Blog Has Been Created")
+
+      alert("Blog Has Been Created");
       resetForm1();
       router.push("/admin/manage-blog");
-
     } catch (error) {
       throw error;
     }
   };
-
+  useEffect(() => {
+    // This code runs only in the browser
+    self.addEventListener('message', (event) => {
+      console.log(event);
+    });
+  }, []);
   //
   return (
     <div className="flex  gap-5">
@@ -82,7 +85,6 @@ const AddBlog = () => {
               onSubmit={handleSubmit(contactFrom1)}
               autoComplete="off"
             >
-             
               <div className="w-full flex gap-10 items-center">
                 <label className="w-[30%]">Category*</label>
                 <select
@@ -189,7 +191,6 @@ const AddBlog = () => {
                   type="text"
                   className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	 lowercase"
                   autoComplete="off"
-
                   {...register("blog_url", { required: true })}
                   placeholder="add Url"
                 />
@@ -214,7 +215,7 @@ const AddBlog = () => {
                     name="blog_description"
                     id="blog_description"
                     control={control}
-                    render={({ field }) => <Editor   {...field} />}
+                    render={({ field }) => <Editor {...field} />}
                     required
                   />
                   {/* <JoditEditor ref={editor} />

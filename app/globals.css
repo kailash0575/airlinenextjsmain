@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*  */
+html{
+  font-family: "Poppins", sans-serif;
+}
+/*  */
+.main_section_container {
+    background: linear-gradient(0deg, rgb(2 98 206 / 16%), rgb(1 31 94 / 89%)),
+      url(../public/assets/images/banner/bannerImg.png) !important;
+  
+    width: 100%;
+    color: #fff;
+  
+    background-size: cover !important;
+    background-position: center;
+  }
+  .help_your_journey {
+    background: linear-gradient(rgb(0 0 0 / 35%), rgba(0, 0, 0, 0.7)),
+      url(../public/assets/images/banner/help.jpg);
+    clear: both;
+    padding: 10px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    clear: both;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    padding: 50px 0px;
+    background-position: center;
+  }
+  /*  */
+  .americanAirlines_container {
+ 
+    background: linear-gradient(0deg, rgb(2 98 206 / 16%), rgb(1 31 94 / 89%)),
+    url(../public/assets//images/banner/postBanner.jpg) !important;
+  clear: both;
+  padding: 10px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  clear: both;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+
+  background-position: center;
+}
+.americanAirlines_containerpost2 {
+  background: linear-gradient(0deg, rgb(2 98 206 / 16%), rgb(1 31 94 / 89%)),
+  url(../public/assets/images/banner/postBanner3.jpg) !important;
+  /* clear: both; */
+  /* padding: 10px; */
+  background-attachment: fixed;
+  background-repeat: no-repeat !;
+  background-size: cover;
+  background-position: right;
+  clear: both;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+}
+
+.americanAirlines_containerpost {
+  background: linear-gradient(0deg, rgb(2 98 206 / 16%), rgb(1 31 94 / 89%)),
+  url(../public/assets/images/airlines/americanAirlines1.jpg) !important;
+  /* clear: both; */
+  /* padding: 10px; */
+  background-attachment: fixed;
+  background-repeat: no-repeat !;
+  background-size: cover;
+  background-position: right;
+  clear: both;
+  text-align: center;
+  align-items: center;
+  height: 100%;
+}

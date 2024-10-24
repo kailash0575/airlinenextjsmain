@@ -6,8 +6,8 @@ const AddBlogComponent = dynamic(() => import("@/components/AddBlog"), {
   ssr: true,
 });
 
-const page = () => {
-  const context = typeof self !== 'undefined' ? self : globalThis;
+const Page = () => {
+
   return (
     <>
       <AddBlog />
@@ -15,4 +15,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

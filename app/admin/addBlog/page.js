@@ -7,8 +7,11 @@ import { redirect, useRouter } from "next/navigation";
 // import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
+const Editor = dynamic(() => import('@/components/Editor'), {
+  ssr: false
+})
 import { useForm, Controller } from "react-hook-form";
-import Editor from "@/components/Editor";
+// import Editor from "@/components/Editor";
 const AddBlog = () => {
   const savedToken = localStorage.getItem('token');
   if (!savedToken) redirect('/')

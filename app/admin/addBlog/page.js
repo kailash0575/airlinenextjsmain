@@ -8,6 +8,7 @@ import { redirect, useRouter } from "next/navigation";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
+import Editor from "@/components/Editor";
 const AddBlog = () => {
   const savedToken = localStorage.getItem('token');
   if (!savedToken) redirect('/')
@@ -212,7 +213,7 @@ const AddBlog = () => {
                     name="blog_description"
                     id="blog_description"
                     control={control}
-                    render={({ field }) => <JoditEditor   {...field} />}
+                    render={({ field }) => <Editor   {...field} />}
                     required
                   />
                   {/* <JoditEditor ref={editor} />

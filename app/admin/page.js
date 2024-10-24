@@ -1,7 +1,7 @@
 'use client'
 import AdminSideBar from "@/components/AdminSideBar";
 
-const AdminPage = () => {
+const page = () => {
 
   return (
     <div className="flex gap-10 ">
@@ -17,4 +17,4 @@ const AdminPage = () => {
   );
 };
 
-export default AdminPage;
+export default page;

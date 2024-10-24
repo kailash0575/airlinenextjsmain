@@ -6,7 +6,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useForm, Controller } from "react-hook-form";
 import Link from "next/link";
-const ManageBlog = () => {
+const page = () => {
   //
   const savedToken = localStorage.getItem("token");
   if (!savedToken) redirect("/");
@@ -141,4 +141,4 @@ const ManageBlog = () => {
   );
 };
 
-export default ManageBlog;
+export default page;

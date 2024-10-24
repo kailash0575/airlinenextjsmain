@@ -5,7 +5,7 @@ const AddBlogComponent = dynamic(() => import("@/components/AddBlog"), {
   ssr: true,
 });
 
-const AddBlog = () => {
+const page = () => {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       // Client-side only code here
@@ -18,4 +18,4 @@ const AddBlog = () => {
   );
 };
 
-export default AddBlog;
+export default page;

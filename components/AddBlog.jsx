@@ -215,7 +215,7 @@ const AddBlog = () => {
                     name="blog_description"
                     id="blog_description"
                     control={control}
-                    render={({ field }) => <Editor {...field} />}
+                    render={({ field }) => <Editor {...field}   />}
                     required
                   />
                   {/* <JoditEditor ref={editor} />

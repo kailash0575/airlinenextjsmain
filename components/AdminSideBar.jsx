@@ -18,7 +18,7 @@ const AdminSideBar = () => {
             Add Blog
           </Link>
           <Link
-            href="/admin/manage-blog"
+            href="/admin/manageBlog"
             className="px-8 py-2 text-white cursor-pointer"
           >
             Manage Blog

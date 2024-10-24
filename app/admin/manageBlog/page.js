@@ -42,7 +42,7 @@ const ManageBlog = () => {
   //
 
   const handleDeleteBlog = (id) => {
-    // console.log(blogId)
+
     axios
       .delete(
         `https://submitform.acedigitalsolution.com/airlines_api/delete_blog.php?id=${id}`
@@ -59,11 +59,11 @@ const ManageBlog = () => {
   //
   const handlePrevBlog = () => {
     setPrevData(-5);
-    // setNextData(nextData+5);
+
   };
   const handleNextBlog = () => {
     setNextData(nextData + 5);
-    // setPrevData(prevData-5);
+
   };
   //
 
@@ -101,9 +101,6 @@ const ManageBlog = () => {
                     <td className="p-2">{blog.blog_url.slice(0, 40)}</td>
 
                     <td className="p-2 flex gap-10">
-                      {" "}
-                      {/* edit popup */}
-                      {/* The button to open modal */}
                       <Link
                         href={`/admin/manage-blog/${blog.id}`}
                         className="btn bg-[#394eea] p-2 px-4 text-white font-extrabold border rounded-xl	shadow-lg"
@@ -111,8 +108,8 @@ const ManageBlog = () => {
                         Edit{" "}
                       </Link>
                       <button
-                        // htmlFor="my_modal_6"
-                        className="btn  bg-[red] p-2 px-4 text-white font-extrabold rounded-xl	shadow-lg cursor-pointer	"
+
+                        className="  bg-[red] p-2 px-4 text-white font-extrabold rounded-xl	shadow-lg cursor-pointer	"
                         onClick={() => handleDeleteBlog(blog.id)}
                       >
                         {" "}

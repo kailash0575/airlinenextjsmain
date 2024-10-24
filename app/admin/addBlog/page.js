@@ -48,7 +48,7 @@ const AddBlog = () => {
           },
         }
       );
-      // console.log(data);
+   
       alert("Blog Has Been Created")
       resetForm1();
       router.push("/admin/manage-blog");
@@ -79,9 +79,7 @@ const AddBlog = () => {
               onSubmit={handleSubmit(contactFrom1)}
               autoComplete="off"
             >
-              {/*  */}
-              {/* <JoditEditor ref={editor} /> */}
-              {/*  */}
+             
               <div className="w-full flex gap-10 items-center">
                 <label className="w-[30%]">Category*</label>
                 <select

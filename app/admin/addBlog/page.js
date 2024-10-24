@@ -1,6 +1,6 @@
 "use client";
 import AdminSideBar from "@/components/AdminSideBar";
-import React, { useState, useRef, useMemo , useEffect} from "react";
+import React, { useState, useRef, useMemo, useEffect } from "react";
 import JoditEditor from "jodit-react";
 import { redirect, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";

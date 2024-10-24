@@ -1,5 +1,6 @@
+"use client"
 import AdminSideBar from "@/components/AdminSideBar";
-import React, { useState, useRef, useMemo, useEffect } from "react";
+
 import JoditEditor from "jodit-react";
 import { redirect, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -20,7 +21,7 @@ const AddBlog = () => {
         register,
         handleSubmit,
         reset: resetForm1,
-        setValue,
+        setvalue,
         control,
     } = useForm();
     //
@@ -89,46 +90,46 @@ const AddBlog = () => {
                                         blog
                                     </option>
                                     <option
-                                        Value="
+                                        value="
                   airport"
                                     >
                                         airport
                                     </option>
                                     {/*  */}
                                     <option
-                                        Value="
+                                        value="
                   airlines_kailash"
                                     >
                                         airlines kailash
                                     </option>
                                     <option
-                                        Value="
+                                        value="
                 flight-airlines"
                                     >
                                         flight kailash
                                     </option>
                                     {/*  */}
                                     <option
-                                        Value="
+                                        value="
                 karam-airlines"
                                     >
                                         karam airline
                                     </option>
                                     <option
-                                        Value="
+                                        value="
                 my-airlines"
                                     >
                                         my airline
                                     </option>
                                     <option
-                                        Value="
+                                        value="
                 ujjwal-airlines"
                                     >
                                         ujjwal airline
                                     </option>
                                     {/*  */}
                                     <option
-                                        Value="
+                                        value="
                 veer-airlines"
                                     >
                                         veer airline
@@ -192,28 +193,17 @@ const AddBlog = () => {
                             {/*  */}
                             <div className="w-full flex gap-10  mt-5">
                                 <label className="w-[30%]">Blog Descriptions*</label>
-                                {/* <Editor
-                  value={text}
-                  onTextChange={(e) => setText(e.htmlValue)}
-                  style={{ height: "320px" }}
-                /> */}
+
                                 <div className="w-[70%] ">
+
                                     {/* <Controller
-                    name="blog_description"
-                    id="blog_description"
-                    control={control}
-                    render={({ field }) => <ReactQuill {...field} />}
-                    required
-                  /> */}
-                                    <Controller
-                    name="blog_description"
-                    id="blog_description"
-                    control={control}
-                    render={({ field }) => <Editor {...field}   />}
-                    required
-                  />
-                                    {/* <JoditEditor ref={editor} />
-                  <JoditEditor    id="blog_description" /> */}
+                                        name="blog_description"
+                                        id="blog_description"
+                                        control={control}
+                                        render={({ field }) => <Editor {...field} />}
+                                        required
+                                    /> */}
+
                                 </div>
                             </div>
                             {/*  */}

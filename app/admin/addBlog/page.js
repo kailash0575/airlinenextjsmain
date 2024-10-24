@@ -6,11 +6,7 @@ const AddBlogComponent = dynamic(() => import("@/components/AddBlog"), {
 });
 
 const page = () => {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Client-side only code here
-    }
-  }, []);
+
   return (
     <>
    <AddBlogComponent/>

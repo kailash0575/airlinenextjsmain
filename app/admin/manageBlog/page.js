@@ -11,8 +11,6 @@ const Page = () => {
   //
   const savedToken = localStorage.getItem("token");
   if (!savedToken) redirect("/");
-
-  //
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

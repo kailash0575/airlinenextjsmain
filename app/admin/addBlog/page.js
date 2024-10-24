@@ -3,7 +3,7 @@ import AdminSideBar from "@/components/AdminSideBar";
 import React, { useState, useRef, useMemo , useEffect} from "react";
 import JoditEditor from "jodit-react";
 import { redirect, useRouter } from "next/navigation";
-
+import dynamic from "next/dynamic";
 // import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";

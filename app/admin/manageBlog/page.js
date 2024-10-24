@@ -42,7 +42,6 @@ const ManageBlog = () => {
   //
 
   const handleDeleteBlog = (id) => {
-
     axios
       .delete(
         `https://submitform.acedigitalsolution.com/airlines_api/delete_blog.php?id=${id}`
@@ -59,11 +58,9 @@ const ManageBlog = () => {
   //
   const handlePrevBlog = () => {
     setPrevData(-5);
-
   };
   const handleNextBlog = () => {
     setNextData(nextData + 5);
-
   };
   //
 
@@ -108,7 +105,6 @@ const ManageBlog = () => {
                         Edit{" "}
                       </Link>
                       <button
-
                         className="  bg-[red] p-2 px-4 text-white font-extrabold rounded-xl	shadow-lg cursor-pointer	"
                         onClick={() => handleDeleteBlog(blog.id)}
                       >

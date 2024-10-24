@@ -58,12 +58,7 @@ const AddBlog = () => {
             throw error;
         }
     };
-    useEffect(() => {
-        // This code runs only in the browser
-        self.addEventListener('message', (event) => {
-            console.log(event);
-        });
-    }, []);
+
     //
     return (
         <div className="flex  gap-5">

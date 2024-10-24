@@ -10,7 +10,7 @@ const page = () => {
 
   return (
     <>
-   <AddBlog/>
+      <AddBlog />
     </>
   );
 };

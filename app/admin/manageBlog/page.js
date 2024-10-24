@@ -6,6 +6,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { useForm, Controller } from "react-hook-form";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 const Page = () => {
   //
   const savedToken = localStorage.getItem("token");

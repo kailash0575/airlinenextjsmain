@@ -1,4 +1,3 @@
-"use client";
 import AdminSideBar from "@/components/AdminSideBar";
 import React, { useState, useRef, useMemo, useEffect } from "react";
 import JoditEditor from "jodit-react";
@@ -206,13 +205,13 @@ const AddBlog = () => {
                     render={({ field }) => <ReactQuill {...field} />}
                     required
                   /> */}
-                                    {/* <Controller
+                                    <Controller
                     name="blog_description"
                     id="blog_description"
                     control={control}
                     render={({ field }) => <Editor {...field}   />}
                     required
-                  /> */}
+                  />
                                     {/* <JoditEditor ref={editor} />
                   <JoditEditor    id="blog_description" /> */}
                                 </div>

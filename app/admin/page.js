@@ -1,6 +1,6 @@
 import AdminSideBar from "@/components/AdminSideBar";
 
-const page = () => {
+const AdminPage = () => {
 
   return (
     <div className="flex gap-10 ">
@@ -16,4 +16,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AdminPage;

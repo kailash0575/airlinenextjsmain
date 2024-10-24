@@ -10,7 +10,7 @@ const ManageBlog = () => {
   //
   const savedToken = localStorage.getItem("token");
   if (!savedToken) redirect("/");
-  
+
   //
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);

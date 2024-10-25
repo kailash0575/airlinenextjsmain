@@ -29,7 +29,7 @@ const AddBlog = () => {
         //
         const formData = new FormData();
         formData.append("blog_image", data.blog_image[0]);
-        
+
         formData.append("category", data.category);
         formData.append("meta_title", data.meta_title);
         formData.append("meta_description", data.meta_description);

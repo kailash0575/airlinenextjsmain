@@ -23,6 +23,8 @@ const Footer = () => {
             </p>
           </div>
           <div className="latest_pages_container mt-5  gap-5 flex justify-between max-lg:flex-wrap pb-8 px-5">
+            {/*  */}
+
             <div className="left_pages flex gap-5 justify-between">
               <div className="left_pages_child w-[50%] flex flex-col ">
                 <p className="text-2xl mb-5  font-bold	text-[#ffcd16]	">
@@ -42,7 +44,7 @@ const Footer = () => {
                   {" "}
                   American Airlines   SFO Terminal
                 </Link>
-               
+
                 {/* Goldstar Air ACC Terminal – Kotoka International Airport */}
               </div>
               {/*  */}
@@ -61,10 +63,11 @@ const Footer = () => {
                   {" "}
                   American Airlines   SFO Terminal
                 </Link>
-              
+
                 {/* Goldstar Air ACC Terminal – Kotoka International Airport */}
               </div>
             </div>
+            {/*  */}
             <div className="right_pages flex gap-5 justify-between">
               <div className="left_pages_child w-[50%]">
                 <p className="text-2xl mb-5	 text-[#ffcd16] font-bold">

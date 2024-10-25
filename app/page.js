@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import "./page.module.css";
 import Navbar from "@/components/Navbar";
@@ -11,7 +12,21 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import Script from "next/script";
 
+import { useState, useEffect } from 'react'
 export default function Home() {
+
+  const [blogPost, setBlogPosts] = useState(null)
+  useEffect(() => {
+    async function fetchPosts() {
+      let res = await fetch('https://submitform.acedigitalsolution.com/airlines_api/all_post_fetch.php')
+      let data = await res.json()
+      setBlogPosts(data.data)
+    }
+    fetchPosts()
+  }, [])
+
+  if (!blogPost) return <div>Loading...</div>
+  // 
   return (
     <div>
       <Script
@@ -27,29 +42,11 @@ export default function Home() {
         {/*  */}
 
         {/*  */}
-        <div className="top_airlines_container px-10 mt-5 mb-5 max-md:px-5">
-          <h2 className="text-3xl	font-semibold	">Major Airlines</h2>
-          <div className="airlines mt-5">
-            <div className="airLines_item flex gap-3">
-              <Link
-                className="rounded-2xl  hover:bg-[#0033a0] hover:text-white  border border-[#0033a0] px-3 py-1 text-[#0033a0]	"
-                href="/american-airlines"
-              >
-                American Airlines
-              </Link>
-              <Link
-                className="rounded-2xl  hover:bg-[#0033a0] hover:text-white  border border-[#0033a0] px-3 py-1 text-[#0033a0]	"
-                href="/frontier-airlines"
-              >
-                Frontier  Airlines
-              </Link>
-            </div>
-          </div>
-        </div>
-        <CardOne />
+
+        <CardOne blogPost={blogPost} />
         <Advantages />
         <HelpJourney />
-        <Card />
+        <Card blogPost={blogPost} />
         <Booking />
         <Footer />
       </div>

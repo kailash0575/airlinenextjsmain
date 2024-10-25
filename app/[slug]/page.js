@@ -42,6 +42,8 @@ const BlogPage = ({ params }) => {
   }, []);
   console.log("total category blog", data);
   //
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>{error}</div>
   return (
     <div>
       {" "}
@@ -71,7 +73,7 @@ const BlogPage = ({ params }) => {
               </span>
             </p>
           </div>
-          <h1>js cimpiler</h1>
+         
           <div className="flex gap-3 ">
             {data?.map((item, id) => (
               <div

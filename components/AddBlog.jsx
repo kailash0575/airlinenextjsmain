@@ -53,7 +53,7 @@ const AddBlog = () => {
 
             alert("Blog Has Been Created");
             resetForm1();
-            router.push("/admin/manage-blog");
+            router.push("/admin/manageBlog");
         } catch (error) {
             throw error;
         }
@@ -196,13 +196,13 @@ const AddBlog = () => {
 
                                 <div className="w-[70%] ">
 
-                                    {/* <Controller
+                                    <Controller
                                         name="blog_description"
                                         id="blog_description"
                                         control={control}
-                                        render={({ field }) => <Editor {...field} />}
+                                        render={({ field }) => <JoditEditor {...field} />}
                                         required
-                                    /> */}
+                                    />
 
                                 </div>
                             </div>

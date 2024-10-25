@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import AdminSideBar from "@/components/AdminSideBar";
 
 import JoditEditor from "jodit-react";
@@ -29,7 +29,7 @@ const AddBlog = () => {
         //
         const formData = new FormData();
         formData.append("blog_image", data.blog_image[0]);
-        //category
+        
         formData.append("category", data.category);
         formData.append("meta_title", data.meta_title);
         formData.append("meta_description", data.meta_description);
@@ -195,7 +195,6 @@ const AddBlog = () => {
                                 <label className="w-[30%]">Blog Descriptions*</label>
 
                                 <div className="w-[70%] ">
-
                                     <Controller
                                         name="blog_description"
                                         id="blog_description"
@@ -203,7 +202,6 @@ const AddBlog = () => {
                                         render={({ field }) => <JoditEditor {...field} />}
                                         required
                                     />
-
                                 </div>
                             </div>
                             {/*  */}

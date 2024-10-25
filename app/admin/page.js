@@ -1,8 +1,8 @@
-'use client'
+"use client";
 import AdminSideBar from "@/components/AdminSideBar";
 
 const page = () => {
-
+  console.log("admin")
   return (
     <div className="flex gap-10 ">
       {" "}
@@ -11,7 +11,6 @@ const page = () => {
       </div>
       <div className="py-5">
         <h1 className="text-3xl">Welcome To Dashboard</h1>
-        <p></p>
       </div>
     </div>
   );

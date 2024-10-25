@@ -23,7 +23,11 @@ const Page = () => {
         "https://submitform.acedigitalsolution.com/airlines_api/all_post_fetch.php"
       )
       .then((response) => {
-        setData(response.data?.data);
+        const combinedData = Object.entries(response?.data?.data).flatMap(
+          ([category, items]) =>
+            (items || []).map((item) => ({ ...item, category }))
+        );
+        setData(combinedData);
         setLoading(false);
       })
       .catch((error) => {
@@ -89,7 +93,7 @@ const Page = () => {
                 </tr>
               </thead>
               <tbody>
-                {data?.blog?.map((blog, id) => (
+                {data?.map((blog, id) => (
                   <tr key={id}>
                     <td className="p-2">{blog.id}</td>
                     <td className="p-2">{blog.created_at}</td>

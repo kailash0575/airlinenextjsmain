@@ -1,4 +1,3 @@
-"use client";
 import AdminSideBar from "@/components/AdminSideBar";
 
 const page = () => {

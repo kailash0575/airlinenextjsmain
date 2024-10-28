@@ -1,4 +1,4 @@
-'use client'
+
 import dynamic from "next/dynamic";
 const ManageBlogComponent = dynamic(() => import("@/components/ManageBlog"), {
   ssr: false,

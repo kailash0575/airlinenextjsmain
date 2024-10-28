@@ -67,7 +67,7 @@ const CardOne = ({ blogPost }) => {
       {/*  */}
       <div className="top_airlines_container  mt-5 mb-5 max-md:px-5">
         <h2 className="text-3xl	font-semibold	">Major Airlines</h2>
-        <div className="flex gap-5">
+        <div className="flex gap-5 flex-wrap">
           {category1?.map((blog, id) => (
             <div className="airlines mt-5 flex " key={id}>
               <div className="airLines_item flex gap-3">

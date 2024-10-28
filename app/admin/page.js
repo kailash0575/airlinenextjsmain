@@ -1,7 +1,7 @@
 import AdminSideBar from "@/components/AdminSideBar";
 
 const page = () => {
-  console.log("admin")
+  console.log("admin");
   return (
     <div className="flex gap-10 ">
       {" "}

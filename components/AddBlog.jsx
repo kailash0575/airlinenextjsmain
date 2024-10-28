@@ -101,6 +101,14 @@ const AddBlog = () => {
                   >
                     airlines kailash
                   </option>
+                  {/*  */}
+                  <option
+                    value="
+                 american-airlines"
+                  >
+                    American Airlines
+                  </option>
+                  {/*  */}
                   <option
                     value="
                 flight-airlines"

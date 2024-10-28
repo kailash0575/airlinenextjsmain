@@ -102,7 +102,7 @@ const ManageBlog = () => {
 
                                         <td className="p-2 flex gap-10">
                                             <Link
-                                                href={`/admin/manage-blog/${blog.id}`}
+                                                href={`/admin/manageBlog/${blog.id}`}
                                                 className="btn bg-[#394eea] p-2 px-4 text-white font-extrabold border rounded-xl	shadow-lg"
                                             >
                                                 Edit{" "}

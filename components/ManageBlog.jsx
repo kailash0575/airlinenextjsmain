@@ -75,7 +75,11 @@ const ManageBlog = () => {
                 <AdminSideBar />
             </div>
             <div className="py-5 px-5 w-full">
-                <h1 className="text-3xl">Manage Blog</h1>
+                <div className="flex  items-center justify-between">
+
+                    <h1 className="text-3xl">Manage Blog</h1>
+                    <Link href="/admin/addBlog" className="bg-[#0033a0]  text-white  rounded-sm font-semibold px-10 py-2  font-base">Add Blog</Link>
+                </div>
                 {/*  */}
 
                 {/*  */}

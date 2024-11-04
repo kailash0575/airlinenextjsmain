@@ -5,7 +5,7 @@
 html{
   font-family: "Poppins", sans-serif;
 }
-/*  */
+
 .main_section_container {
     background: linear-gradient(0deg, rgb(2 98 206 / 16%), rgb(1 31 94 / 89%)),
       url(../public/assets/images/banner/bannerImg.png) !important;

@@ -14,6 +14,7 @@ import Script from "next/script";
 
 import { useState, useEffect } from 'react'
 export default function Home() {
+  console.log("Main file of airlineTerminal Project")
 
   const [blogPost, setBlogPosts] = useState(null)
   useEffect(() => {

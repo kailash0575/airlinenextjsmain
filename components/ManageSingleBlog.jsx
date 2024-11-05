@@ -28,9 +28,12 @@ const ManageSingleBlog = ({ params }) => {
           ([category, items]) =>
             (items || []).map((item) => ({ ...item, category }))
         );
+        // setSigleData(JSON.stringify(combinedData[0]));
         setSigleData(combinedData[0]);
+
         // setSigleData(singleData);
-        //
+        // JSON.stringify(singleData)
+        //JSON.stringify()
         setsingleUserId(id);
       })
       .catch((error) => {
@@ -48,20 +51,40 @@ const ManageSingleBlog = ({ params }) => {
     setValue,
   } = useForm();
 
-  const contactFrom1 = async (data) => {
+  const contactFrom1 = async (e, data) => {
+    e.preventDefault();
+    //
+    const payload = {
+      ...singleData,
+      meta_title: singleData.meta_title || "Default Meta Title", // Use a default if necessary
+      meta_description: singleData.meta_description || "Default Meta Title",
+      focus_keywords: singleData.focus_keywords || "Default focus keywords",
+      title_tag: singleData.title_tag || "Default title tag",
+      // blog_description: singleData.blog_description || "Default blog_description ",
+      // blog_image : singleData.blog_image || "Default Blog Image"
+      image_alt_tag: singleData.image_alt_tag || "Default Image Tag",
+      category: singleData.category || "Default category ",
+    };
+    //
     try {
-      const response = await axios.put(
+      const response = await fetch(
         `https://submitform.acedigitalsolution.com/airlines_api/update_blog.php?id=${id}`,
 
-        { data: data }
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
       );
-      console.log(data);
-      resetForm1();
+      // console.log(data);
+      // resetForm1();
     } catch (error) {
       throw error;
     }
   };
-
+  //
   console.log("Id = ", singleUserId);
   console.log("singleData = ", singleData);
   useEffect(() => {
@@ -77,9 +100,7 @@ const ManageSingleBlog = ({ params }) => {
       [name]: value,
     });
   };
-  // console.log(blogData)
-  // console.log(data)
-  //
+
   return (
     <div className="flex gap-5">
       {/*  */}
@@ -95,24 +116,23 @@ const ManageSingleBlog = ({ params }) => {
           {" "}
           <p className="text-3xl font-extrabold mb-10 mt-10">Edit Blog</p>{" "}
         </div>
-        <form className="w-full" onSubmit={handleSubmitForm1(contactFrom1)}>
+        <form className="w-full" onSubmit={contactFrom1}>
           <div>
-            <div className="w-full flex gap-10 items-center ">
+            <div className="w-full flex gap-10 items-center  ">
               <label className="w-[30%]">Category*</label>
 
               <select
                 className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                {...registerForm1("category", {
-                  required: false,
-                })}
+                // {...registerForm1("category", {
+                //   required: false,
+                // })}
+                value={singleData?.category}
+                id="category"
+                name="category"
+                onChange={handleChange}
               >
                 <option value="blog">Blog</option>
-                <option
-                  value="
-                                               airport"
-                >
-                  Airport
-                </option>
+                <option value="airport">Airport</option>
               </select>
             </div>
             {/*  */}
@@ -123,116 +143,136 @@ const ManageSingleBlog = ({ params }) => {
                 type="text"
                 className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
                 autoComplete="off"
+                id="meta_title"
+                name="meta_title"
                 value={singleData?.meta_title}
                 // value={singleData.meta_title}
-                {...registerForm1("meta_title", {
-                  required: false,
-                })}
+                // {...registerForm1("meta_title", {
+                //   required: false,
+                // })}
                 onChange={handleChange}
               />
             </div>
-            <p className="text-[rgb(255,0,0)]">
-              {/* {singleBlog?.meta_description} */}
-            </p>
-            <div className="w-full flex gap-10 items-center mt-5 ">
-              <label className="w-[30%]">Meta Descriptions*</label>
-              <input
-                type="text"
-                className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                value={singleData?.meta_description}
-                autoComplete="off"
-                // value={item?.meta_description}
-                {...registerForm1("meta_description", {
-                  required: false,
-                })}
-              />
-            </div>
-            {/*  */}
-            <div className="w-full flex gap-10 items-center mt-5 ">
-              <label className="w-[30%]">Meta Keywords*</label>
-              <textarea
-                type="text"
-                className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black"
-                autoComplete="off"
-                value={singleData?.focus_keywords}
-                {...registerForm1("focus_keywords", {
-                  required: false,
-                })}
-              />
-            </div>
-            {/*  */}
-            <div className="w-full flex gap-10 items-center mt-5 ">
-              <label className="w-[30%]">Title Tag*</label>
-              <input
-                type="text"
-                className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                autoComplete="off"
-                value={singleData?.title_tag}
-                {...registerForm1("title_tag", {
-                  required: false,
-                })}
-              />
-            </div>
-            <div className="w-full flex gap-10 items-center mt-5 ">
-              <label className="w-[30%]">Blog Url*</label>
-              <input
-                type="text"
-                className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                autoComplete="off"
-                value={singleData?.blog_url}
-                {...registerForm1("blog_url", {
-                  required: false,
-                })}
-              />
-            </div>
-            {/*  */}
-            <div className="w-full flex gap-10  mt-5 ">
-              <label className="w-[30%]">Blog Descriptions*</label>
-              <div className="w-[70%] ">
-                {/* <Controller
+            <div>
+              <div className="w-full flex gap-10 items-center mt-5 ">
+                <label className="w-[30%]">Meta Descriptions*</label>
+                <input
+                  type="text"
+                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
+                  id="meta_description"
+                  name="meta_description"
+                  value={singleData?.meta_description}
+                  autoComplete="off"
+                  onChange={handleChange}
+
+                  // value={item?.meta_description}
+                  // {...registerForm1("meta_description", {
+                  //   required: false,
+                  // })}
+                />
+              </div>
+              {/*  */}
+              <div className="w-full flex gap-10 items-center mt-5 ">
+                <label className="w-[30%]">Meta Keywords*</label>
+                <textarea
+                  type="text"
+                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black"
+                  autoComplete="off"
+                  value={singleData?.focus_keywords}
+                  id="focus_keywords"
+                  name="focus_keywords"
+                  onChange={handleChange}
+
+                  // {...registerForm1("focus_keywords", {
+                  //   required: false,
+                  // })}
+                />
+              </div>
+              {/*  */}
+              <div className="w-full flex gap-10 items-center mt-5 ">
+                <label className="w-[30%]">Title Tag*</label>
+                <input
+                  type="text"
+                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
+                  autoComplete="off"
+                  value={singleData?.title_tag}
+                  id="title_tag"
+                  name="title_tag"
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="w-full flex gap-10 items-center mt-5 ">
+                <label className="w-[30%]">Blog Url*</label>
+                <input
+                  type="text"
+                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
+                  autoComplete="off"
+                  value={singleData?.blog_url}
+                  onChange={handleChange}
+                  id="blog_url"
+                  name="blog_url"
+                />
+              </div>
+              {/*  */}
+              <div className="w-full flex gap-10  mt-5 ">
+                <label className="w-[30%]">Blog Descriptions*</label>
+                <div className="w-[70%] ">
+                  {/* <Controller
                                         name="blog_description"
                                         id="blog_description"
                                         value={item.blog_description}
                                         control={control}
                                         render={({ field }) => <ReactQuill {...field} value={item.blog_description} />}
                                     /> */}
-                <Controller
-                  name="blog_description"
-                  id="blog_description"
-                  control={control}
-                  render={({ field }) => (
-                    <JoditEditor
-                      {...field}
-                      value={singleData?.blog_description}
-                    />
-                  )}
-                  required
+                  {/* <Controller
+                    name="blog_description"
+                    id="blog_description"
+                    control={control}
+                    render={({ field }) => (
+                      <JoditEditor
+                        {...field}
+                        value={singleData?.blog_description}
+                      />
+                    )}
+                    required
+                  /> */}
+                  <JoditEditor
+                    id="blog_description"
+                    name="blog_description"
+                    value={singleData?.blog_description}
+                    // onChange={handleChange}
+                  />
+                </div>
+              </div>
+              {/*  */}
+              <div className="w-full flex gap-10  mt-5 ">
+                <label className="w-[30%]">Blog Image</label>
+                <input
+                  type="file"
+                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
+                  // value={singleData?.blog_image}
+                  // id="blog_image"
+                  // name="blog_image"
+                  // {...registerForm1("blog_image", {
+                  //   required: false,
+                  // })}
                 />
               </div>
-            </div>
-            {/*  */}
-            <div className="w-full flex gap-10  mt-5 ">
-              <label className="w-[30%]">Blog Image</label>
-              <input
-                type="file"
-                className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                // value={singleData?.blog_image}
-                {...registerForm1("blog_image", {
-                  required: false,
-                })}
-              />
-            </div>
-            <div className="w-full flex gap-10  mt-5 ">
-              <label className="w-[30%]">Image Alt Tag</label>
-              <input
-                type="text"
-                // blog_description
-                value={singleData?.image_alt_tag}
-                className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                {...registerForm1("image_alt_tag", {
-                  required: false,
-                })}
-              />
+              <div className="w-full flex gap-10  mt-5 ">
+                <label className="w-[30%]">Image Alt Tag</label>
+                <input
+                  type="text"
+                  // blog_description
+                  value={singleData?.image_alt_tag}
+                  onChange={handleChange}
+                  id="image_alt_tag"
+                  name="image_alt_tag"
+                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
+                  // {...registerForm1("image_alt_tag", {
+                  //   required: false,
+                  // })}
+                />
+              </div>
             </div>
             {/*  */}
           </div>

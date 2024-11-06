@@ -73,7 +73,7 @@ const BlogPage = ({ params }) => {
               </span>
             </p>
           </div>
-         
+
           <div className="flex gap-3 ">
             {data?.map((item, id) => (
               <div
@@ -87,7 +87,7 @@ const BlogPage = ({ params }) => {
                   <div className="h-[220px]  w-full">
                     <Image
                       src={item?.blog_image}
-                      alt="postImg"
+                      alt={item?.image_alt_tag}
                       className="w-full h-full rounded-t-lg "
                       width={500}
                       height={500}

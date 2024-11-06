@@ -99,7 +99,7 @@ const CardOne = ({ blogPost }) => {
               <div className="card_image h-[160px] w-[285px]">
                 <Image
                   src={blog.blog_image}
-                  alt="card2"
+                  alt={blog?.image_alt_tag}
                   width={400}
                   height={400}
                   className="rounded-t-lg h-full w-full"

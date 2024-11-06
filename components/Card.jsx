@@ -61,7 +61,7 @@ const Card = ({ blogPost }) => {
               <div className="card_image h-[219px]">
                 <Image
                   src={blog?.blog_image}
-                  alt="card2"
+                  alt={blog?.image_alt_tag}
                   height={500}
                   width={500}
                   className="rounded-t-lg h-full"

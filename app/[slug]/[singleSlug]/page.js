@@ -85,21 +85,17 @@ const SingleBlogPage = ({ params }) => {
         </div>
       ))}
       {/*  */}
-      <div className="px-5" >
+      <div className="px-5">
         <div className="border-[1px] border-[#8dc8e8] mb-10 p-2 ">
-          {
-            data?.map((blog, id) => (
-
-              <div
-
-                dangerouslySetInnerHTML={{ __html: blog?.blog_description }}
-                key={id} />
-            ))
-          }
-
+          {data?.map((blog, id) => (
+            <div
+              className="custom-content"
+              dangerouslySetInnerHTML={{ __html: blog?.blog_description }}
+              key={id}
+            />
+          ))}
         </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -5,7 +5,15 @@ import axios from "axios";
 // import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import JoditEditor from "jodit-react";
-
+//
+//
+import SunEditor from "suneditor-react";
+import "suneditor/dist/css/suneditor.min.css";
+import katex from "katex";
+import "katex/dist/katex.min.css";
+//
+// import { useEffect, useState, useRef } from "react";
+//
 // import { useForm, Controller } from "react-hook-form";
 import { redirect } from "next/navigation";
 const ManageSingleBlog = ({ params }) => {
@@ -60,16 +68,16 @@ const ManageSingleBlog = ({ params }) => {
     //
     const data = {
       ...singleData,
-      meta_title: singleData.meta_title || "Default Meta Title", // Use a default if necessary
-      meta_description:
-        singleData.meta_description || "Default Meta Description",
-      focus_keywords: singleData.focus_keywords || "Default focus keywords",
-      title_tag: singleData.title_tag || "Default title tag",
-      blog_description:
-        singleData.blog_description || "Default blog_description ",
+      meta_title: singleData.meta_title, // Use a default if necessary
+      meta_description: singleData.meta_description,
+      focus_keywords: singleData.focus_keywords,
+      // focus_keywords: singleData.focus_keywords || "Default focus keywords",
+      //
+      title_tag: singleData.title_tag,
+      blog_description: singleData.blog_description,
       // blog_image : singleData.blog_image || "Default Blog Image"
-      image_alt_tag: singleData.image_alt_tag || "Default Image Tag",
-      category: singleData.category || "Default category ",
+      image_alt_tag: singleData.image_alt_tag,
+      category: singleData.category,
       blog_image: singleData?.blog_image,
     };
     //
@@ -121,6 +129,48 @@ const ManageSingleBlog = ({ params }) => {
   //   setImageFile(e.target.files[0]);
   // };
   //
+  const editorOptions = {
+    height: 200,
+    buttonList: [
+      ["undo", "redo"],
+      ["removeFormat"],
+      ["bold", "underline", "italic", "fontSize"],
+      ["fontColor", "hiliteColor"],
+      ["align", "horizontalRule", "list"],
+      ["table", "link", "image", "imageGallery"],
+      ["showBlocks", "codeView"],
+      ["math"],
+    ],
+    katex: katex,
+    imageRotation: false,
+    fontSize: [12, 14, 16, 18, 20],
+    colorList: [
+      [
+        "#828282",
+        "#FF5400",
+        "#676464",
+        "#F1F2F4",
+        "#FF9B00",
+        "#F00",
+        "#fa6e30",
+        "#000",
+        "rgba(255, 153, 0, 0.1)",
+        "#FF6600",
+        "#0099FF",
+        "#74CC6D",
+        "#FF9900",
+        "#CCCCCC",
+      ],
+    ],
+    imageUploadUrl: "http://localhost:8080/chazki-gateway/orders/upload",
+    imageGalleryUrl: "http://localhost:8080/chazki-gateway/orders/gallery",
+  };
+  //
+  const editorRef = useRef();
+  useEffect(() => {
+    console.log(editorRef.current);
+  }, []);
+  //
   return (
     <div className="flex gap-5">
       {/*  */}
@@ -152,7 +202,7 @@ const ManageSingleBlog = ({ params }) => {
                 onChange={handleChange}
               >
                 <option defaultValue value={singleData?.category}>
-                  {singleData?.category.split("-").join(" ")}
+                  {singleData?.category}
                 </option>
                 <option
                   value="
@@ -310,7 +360,8 @@ const ManageSingleBlog = ({ params }) => {
                     )}
                     required
                   /> */}
-                  <JoditEditor
+                  {/* 1 */}
+                  {/* <JoditEditor
                     id="blog_description"
                     name="blog_description"
                     // ref={editor}
@@ -319,11 +370,26 @@ const ManageSingleBlog = ({ params }) => {
                     // onChange={handleChange}
                     onBlur={handleEditorChange}
                   // onChange={(newContent) => setBlog_Description(newContent)}
+                  /> */}
+                  {/* 2 */}
+                  <SunEditor
+                    id="blog_description"
+                    name="blog_description"
+                    // value={singleData?.blog_description}
+                    // set used to set default value in the sunEditor
+                    // handleEditorChange
+                    setContents={singleData?.blog_description}
+                    ref={editorRef}
+                    onChange={handleEditorChange}
+                    setOptions={editorOptions}
+                    lang="es"
+                  // onImageUploadError={onImageUploadError}
+                  // onChange={onChangeHandler}
                   />
                 </div>
               </div>
               {/*  */}
-              <div className="w-full flex gap-10  mt-5 ">
+              <div className="w-full flex gap-10  mt-5 for_image_container ">
                 <label className="w-[30%]">Blog Image</label>
                 <input
                   type="file"

@@ -4,11 +4,11 @@ const ManageSingleBlogComponent = dynamic(() => import("@/components/ManageSingl
   ssr: false,
 });
 
-const Page = ({params}) => {
+const Page = ({ params }) => {
 
   return (
     <>
-      <ManageSingleBlogComponent  params={params} />
+      <ManageSingleBlogComponent params={params} />
     </>
   );
 };

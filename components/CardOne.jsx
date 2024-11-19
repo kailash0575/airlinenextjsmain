@@ -102,7 +102,7 @@ const CardOne = ({ blogPost }) => {
                   alt={blog?.image_alt_tag}
                   width={400}
                   height={400}
-                  className="rounded-t-lg h-full w-full"
+                  className="rounded-t-lg h-full w-full object-cover"
                 />
               </div>
               <div className="card_heading">

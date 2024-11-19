@@ -64,7 +64,7 @@ const Card = ({ blogPost }) => {
                   alt={blog?.image_alt_tag}
                   height={500}
                   width={500}
-                  className="rounded-t-lg h-full"
+                  className="rounded-t-lg h-full object-cover"
                 />
               </div>
               <div className="card_heading">

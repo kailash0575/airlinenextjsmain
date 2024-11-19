@@ -3,12 +3,54 @@ import AdminSideBar from "@/components/AdminSideBar";
 import JoditEditor from "jodit-react";
 import { redirect, useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-// import ReactQuill from "react-quill";
+import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import axios from "axios";
-// 
+//
+import SunEditor from "suneditor-react";
+import "suneditor/dist/css/suneditor.min.css";
+import katex from "katex";
+import "katex/dist/katex.min.css";
+//
+import { useEffect, useState, useRef } from "react";
+const editorOptions = {
+  height: 200,
+  buttonList: [
+    ["undo", "redo"],
+    ["removeFormat"],
+    ["bold", "underline", "italic", "fontSize"],
+    ["fontColor", "hiliteColor"],
+    ["align", "horizontalRule", "list"],
+    ["table", "link", "image", "imageGallery"],
+    ["showBlocks", "codeView"],
+    ["math"],
+  ],
+  katex: katex,
+  imageRotation: false,
+  fontSize: [12, 14, 16, 18, 20],
+  colorList: [
+    [
+      "#828282",
+      "#FF5400",
+      "#676464",
+      "#F1F2F4",
+      "#FF9B00",
+      "#F00",
+      "#fa6e30",
+      "#000",
+      "rgba(255, 153, 0, 0.1)",
+      "#FF6600",
+      "#0099FF",
+      "#74CC6D",
+      "#FF9900",
+      "#CCCCCC",
+    ],
+  ],
+  imageUploadUrl: "http://localhost:8080/chazki-gateway/orders/upload",
+  imageGalleryUrl: "http://localhost:8080/chazki-gateway/orders/gallery",
+};
 
-// 
+//
 const Editor = dynamic(() => import("@/components/Editor"), {
   ssr: false,
 });
@@ -61,9 +103,35 @@ const AddBlog = () => {
     }
   };
 
-  // 
-  
   //
+
+  //
+  const editorRef = useRef();
+  const contentRef = useRef();
+  const [value, setValue] = useState("");
+  useEffect(() => {
+    console.log(editorRef.current);
+  }, []);
+
+  // const onImageUploadError = (errorMessage, result, core) => {
+  //   alert(errorMessage);
+  // core.noticeOpen(errorMessage);
+  // return false;
+  // console.log('error!')
+  // return true;
+  // }
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+    contentRef.current.innerHTML = value;
+  }, [value]);
+
+  const onChangeHandler = (content) => {
+    console.log(content);
+    setValue(content);
+  };
+  //
+
   return (
     <div className="flex  gap-5">
       <div className="w-[202px]">
@@ -207,13 +275,50 @@ const AddBlog = () => {
                 <label className="w-[30%]">Blog Descriptions*</label>
 
                 <div className="w-[70%] ">
-                  <Controller
+                  {/* 1 */}
+                  {/* <Controller
                     name="blog_description"
                     id="blog_description"
                     control={control}
-                    render={({ field }) => <JoditEditor {...field} />}
+                    render={({ field }) => <ReactQuill {...field} />}
+                    required
+                  /> */}
+                  {/* jodit editor */}
+                  {/* 3 */}
+                  <Controller
+                    name="blog_description"
+                    id="blog_description"
+                    setOptions={editorOptions}
+                    control={control}
+                    render={({ field }) => (
+                      <SunEditor
+                        {...field}
+                        lang="es"
+                        setOptions={editorOptions}
+                      />
+                    )}
                     required
                   />
+                  {/*  */}
+                  {/*  */}
+                  {/* <SunEditor
+                    ref={editorRef}
+                    setOptions={editorOptions}
+                    lang="es"
+                    // onImageUploadError={onImageUploadError}
+                    onChange={onChangeHandler}
+                  /> */}
+                  {/*  */}
+                  {/*  */}
+                  {/* <Controller
+                    name="blog_description"
+                    id="blog_description"
+                    control={control}
+                    // config={config}
+                    render={({ field }) => <Editor {...field}  />}
+                    required
+                  /> */}
+                  {/*  */}
                 </div>
               </div>
               {/*  */}
@@ -221,6 +326,7 @@ const AddBlog = () => {
                 <label className="w-[30%]">Blog Image</label>
                 <input
                   type="file"
+accept="image/*"
                   className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black"
                   {...register("blog_image", { required: true })}
                 />

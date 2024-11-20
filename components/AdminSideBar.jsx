@@ -1,13 +1,8 @@
-'use client'
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { redirect } from "next/navigation";
-
 // import logo from "../public/assets/images/airlines/Logo.png";
 const AdminSideBar = () => {
-  const savedToken = localStorage.getItem("token");
-  if (!savedToken) redirect("/");
   return (
     <div className="h-full bg-[#0033a0]  w-[202px]">
       <div className="dashboard_sidebar sticky top-5 ">

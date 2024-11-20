@@ -1,10 +1,7 @@
-"use client"
 import AdminSideBar from "@/components/AdminSideBar";
-import { redirect } from "next/navigation";
 
 const page = () => {
-  const savedToken = localStorage.getItem("token");
-  if (!savedToken) redirect("/");
+  console.log("admin");
   return (
     <div className="flex gap-10 ">
       {" "}

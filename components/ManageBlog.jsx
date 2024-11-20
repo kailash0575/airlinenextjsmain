@@ -9,6 +9,7 @@ import Link from "next/link";
 import { redirect } from "next/navigation";
 const ManageBlog = () => {
     //
+
     const savedToken = localStorage.getItem("token");
     if (!savedToken) redirect("/");
     const [data, setData] = useState([]);

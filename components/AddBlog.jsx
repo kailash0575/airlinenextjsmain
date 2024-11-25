@@ -326,7 +326,7 @@ const AddBlog = () => {
                 <label className="w-[30%]">Blog Image</label>
                 <input
                   type="file"
-accept="image/*"
+                  accept="image/*"
                   className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black"
                   {...register("blog_image", { required: true })}
                 />

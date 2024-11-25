@@ -10,7 +10,6 @@ const Booking = () => {
         <Image src={booking} alt="booking" className='w-full h-full rounded-3xl' />
       </div>
       <div className="looking_affordable_Air bg-white absolute p-7 rounded-3xl max-md:p-0 max-md:px-2  max-md:pt-5 max-md:pb-5 ">
-
         <h3 className='text-2xl	font-semibold	 max-md:text-xl 
  text-[#00205b]'>Discover Unbeatable Travel Deals!
         </h3>

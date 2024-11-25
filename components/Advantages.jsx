@@ -48,7 +48,7 @@ const Advantages = () => {
                     </div>
                 </div>
                 <div className="right_container w-[50%] max-lg:w-full  max-lg:flex  max-lg:justify-center">
-                    <Image src={whywechoose} alt="whywechoose"  className='w-full h-full'/>
+                    <Image src={whywechoose} alt="whywechoose" className='w-full h-full' />
                 </div>
             </div>
             {/*  */}

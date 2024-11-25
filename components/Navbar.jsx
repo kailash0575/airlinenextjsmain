@@ -3,12 +3,31 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import Image from "next/image";
-
+import axios from "axios";
 import logo from "../public/assets/images/airlines/Logo.png";
 const Navbar = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   //
+  const [blogPost, setBlogPosts] = useState([])
+  useEffect(() => {
+    async function fetchPosts() {
+      let res = await fetch('https://submitform.acedigitalsolution.com/airlines_api/all_post_fetch.php')
+      let data = await res.json()
+      setBlogPosts(data.data)
+      //  
+      // 
+    }
+    fetchPosts()
+  }, [])
+  //  
+  console.log("blogPost", blogPost)
+  // 
+  const keys = Object.keys(blogPost).map(item => item);
+  // 
+
+  // 
+  console.log("keys value", keys);
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"; // disable scrolling
@@ -64,14 +83,21 @@ const Navbar = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg>
               </Link>
               <ul className="absolute  nav_item_child w-[200px] flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300  bg-[#0033a0] p-2 cursor-pointer  ">
-                <Link
+                {
+                  keys.map((item, id) => (
+                    <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2"
+
+                    } href={item} key={id}> {item}</Link>
+                  ))
+                }
+                {/* <Link
                   className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2"
 
                   } href="/american-airlines"
                 >
                   American Airlines
                 </Link>
-                <Link href='/frontier-airlines'>Frontier  Airlines</Link>
+                <Link href='/frontier-airlines'>Frontier  Airlines</Link> */}
 
               </ul>
             </ul>
@@ -98,8 +124,13 @@ const Navbar = () => {
                 <ul className="p-4 relative  nav_item_child_main group max-md:p-2 flex  items-center justify-center">
                   Airlines    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ffffff"><path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z" /></svg>
                   <ul className="absolute  nav_item_child w-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300  bg-[#0033a0] p-2 top-10 flex flex-col">
-                    <Link href='/american-airlines'>American Airlines</Link>
-                    <Link href='/frontier-airlines'>Frontier  Airlines</Link>
+                    {
+                      keys.map((item, id) => (
+                        <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2"
+
+                        } href={item} key={id}> {item}</Link>
+                      ))
+                    }
 
                     {/* <li>Aegean Air</li> */}
                   </ul>

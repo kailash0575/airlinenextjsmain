@@ -49,7 +49,7 @@ export default function Home() {
         <HelpJourney />
         <Card blogPost={blogPost} />
         <Booking />
-        <Footer />
+        <Footer blogPost={blogPost} />
       </div>
     </div>
   );

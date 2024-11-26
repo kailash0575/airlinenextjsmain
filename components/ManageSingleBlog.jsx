@@ -6,6 +6,8 @@ import axios from "axios";
 import "react-quill/dist/quill.snow.css";
 import JoditEditor from "jodit-react";
 //
+import {  useRouter } from "next/navigation";
+
 //
 import SunEditor from "suneditor-react";
 import "suneditor/dist/css/suneditor.min.css";
@@ -19,6 +21,7 @@ import { redirect } from "next/navigation";
 const ManageSingleBlog = ({ params }) => {
   const savedToken = localStorage.getItem("token");
   if (!savedToken) redirect("/");
+  const router = useRouter();
 
   const id = params.slug;
   const [singleUserId, setsingleUserId] = useState();
@@ -27,6 +30,10 @@ const ManageSingleBlog = ({ params }) => {
   // const editor = useRef(null);
   //
   // update api end
+  // 
+  const [image, setImage] = useState(null);
+  const [base64, setBase64] = useState("");
+  // 
   const [singleData, setSingleData] = useState();
   // const [blog_description, setBlog_Description] = useState("");
   // fetch single blog
@@ -73,12 +80,14 @@ const ManageSingleBlog = ({ params }) => {
       focus_keywords: singleData.focus_keywords,
       // focus_keywords: singleData.focus_keywords || "Default focus keywords",
       //
+      blog_url: singleData.blog_url,
       title_tag: singleData.title_tag,
       blog_description: singleData.blog_description,
       // blog_image : singleData.blog_image || "Default Blog Image"
       image_alt_tag: singleData.image_alt_tag,
       category: singleData.category,
-      blog_image: singleData?.blog_image,
+
+      // image: blog_image,
     };
     //
     try {
@@ -88,11 +97,15 @@ const ManageSingleBlog = ({ params }) => {
         {
           method: "PUT",
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
           body: JSON.stringify(data),
         }
+        
       );
+      alert("Blog Has Been Updated");
+      router.push("/admin/manageBlog");
+
       // console.log(data);
       // resetForm1();
     } catch (error) {
@@ -116,7 +129,15 @@ const ManageSingleBlog = ({ params }) => {
       [name]: value,
     });
   };
+  // 
 
+  // 
+  // const handleImageChange = (event) => {
+  //   const file = event.target.files[0];
+  //   setImage(file)
+  // };
+  // console.log(image)
+  // 
   // for editor  update handleChange
   const handleEditorChange = (blog_description) => {
     setSingleData({
@@ -126,7 +147,7 @@ const ManageSingleBlog = ({ params }) => {
   };
   //
   // const handleImageChange = (e) => {
-  //   setImageFile(e.target.files[0]);
+  //   setImage(e.target.files[0]);
   // };
   //
   const editorOptions = {
@@ -206,16 +227,9 @@ const ManageSingleBlog = ({ params }) => {
                 </option>
                 <option
                   value="
-                  airport"
+                 frontier-airlines"
                 >
-                  airport
-                </option>
-                {/*  */}
-                <option
-                  value="
-                  airlines_kailash"
-                >
-                  airlines kailash
+                  Frontier Airlines
                 </option>
                 {/*  */}
                 <option
@@ -223,39 +237,6 @@ const ManageSingleBlog = ({ params }) => {
                  american-airlines"
                 >
                   American Airlines
-                </option>
-                {/*  */}
-                <option
-                  value="
-                flight-airlines"
-                >
-                  flight kailash
-                </option>
-                {/*  */}
-                <option
-                  value="
-                karam-airlines"
-                >
-                  karam airline
-                </option>
-                <option
-                  value="
-                my-airlines"
-                >
-                  my airline
-                </option>
-                <option
-                  value="
-                ujjwal-airlines"
-                >
-                  ujjwal airline
-                </option>
-                {/*  */}
-                <option
-                  value="
-                veer-airlines"
-                >
-                  veer airline
                 </option>
               </select>
             </div>
@@ -389,22 +370,7 @@ const ManageSingleBlog = ({ params }) => {
                 </div>
               </div>
               {/*  */}
-              <div className="w-full flex gap-10  mt-5 for_image_container ">
-                <label className="w-[30%]">Blog Image</label>
-                <input
-                  type="file"
-                  className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
-                  // value={singleData?.blog_image}
-                  id="blog_image"
-                  accept="image/*"
-                  name="blog_image"
-                  onChange={handleChange}
 
-                // {...registerForm1("blog_image", {
-                //   required: false,
-                // })}
-                />
-              </div>
               <div className="w-full flex gap-10  mt-5 ">
                 <label className="w-[30%]">Image Alt Tag</label>
                 <input

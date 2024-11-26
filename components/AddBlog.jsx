@@ -94,7 +94,7 @@ const AddBlog = () => {
           },
         }
       );
-
+  
       alert("Blog Has Been Created");
       resetForm1();
       router.push("/admin/manageBlog");
@@ -158,21 +158,14 @@ const AddBlog = () => {
                   className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
                   {...register("category", { required: true })}
                 >
-                  <option value="blog" defaultValue>
-                    blog
-                  </option>
-                  <option
-                    value="
-                  airport"
-                  >
-                    airport
-                  </option>
+                 
+
                   {/*  */}
                   <option
                     value="
-                  airlines_kailash"
+                 frontier-airlines" defaultValue
                   >
-                    airlines kailash
+                   Frontier Airlines
                   </option>
                   {/*  */}
                   <option
@@ -182,39 +175,7 @@ const AddBlog = () => {
                     American Airlines
                   </option>
                   {/*  */}
-                  <option
-                    value="
-                flight-airlines"
-                  >
-                    flight kailash
-                  </option>
-                  {/*  */}
-                  <option
-                    value="
-                karam-airlines"
-                  >
-                    karam airline
-                  </option>
-                  <option
-                    value="
-                my-airlines"
-                  >
-                    my airline
-                  </option>
-                  <option
-                    value="
-                ujjwal-airlines"
-                  >
-                    ujjwal airline
-                  </option>
-                  {/*  */}
-                  <option
-                    value="
-                veer-airlines"
-                  >
-                    veer airline
-                  </option>
-                  {/*  */}
+
                 </select>
               </div>
               <div className="w-full flex gap-10 items-center mt-5">

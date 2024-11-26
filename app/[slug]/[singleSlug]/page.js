@@ -76,7 +76,7 @@ const SingleBlogPage = ({ params }) => {
                     className="capitalize"
                   >
                     {" "}
-                    {blog.blog_url.replace("-", " ")}
+                    {blog.title_tag}
                   </Link>
                 </span>
               </p>

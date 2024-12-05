@@ -94,7 +94,7 @@ const AddBlog = () => {
           },
         }
       );
-  
+
       alert("Blog Has Been Created");
       resetForm1();
       router.push("/admin/manageBlog");
@@ -158,14 +158,14 @@ const AddBlog = () => {
                   className="w-[70%] border border-spacing-3 p-3  rounded-xl text-black	"
                   {...register("category", { required: true })}
                 >
-                 
+
 
                   {/*  */}
                   <option
                     value="
                  frontier-airlines" defaultValue
                   >
-                   Frontier Airlines
+                    Frontier Airlines
                   </option>
                   {/*  */}
                   <option

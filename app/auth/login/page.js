@@ -39,7 +39,7 @@ const Login = () => {
         "https://submitform.acedigitalsolution.com/airlines_api/auth/login.php",
         data
       );
-      console.log(response);
+      // console.log(response);
       toast("You are successfully logged in");
       localStorage.setItem("token", response?.data?.token);
       router.push("/admin");

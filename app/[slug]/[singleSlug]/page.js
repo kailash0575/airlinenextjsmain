@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const SingleBlogPage = ({ params }) => {
-  console.log(params.singleSlug);
+  // console.log(params.singleSlug);
   const blogUrl = params.singleSlug;
   // https://submitform.acedigitalsolution.com/airlines_api/all_post_fetch.php?blog_url=get-retails-on-sfo-american-airlines-terminal
   const [data, setData] = useState([]);
@@ -37,7 +37,7 @@ const SingleBlogPage = ({ params }) => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log("single blog", data);
+  // console.log("single blog", data);
   //
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;

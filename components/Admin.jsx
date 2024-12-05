@@ -4,7 +4,7 @@ import AdminSideBar from './AdminSideBar'
 import { redirect } from "next/navigation";
 
 const Admin = () => {
-  console.log("admin");
+//   console.log("admin");
   const savedToken = localStorage.getItem("token");
   if (!savedToken) redirect("/");
   return (

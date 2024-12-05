@@ -21,7 +21,7 @@ const Navbar1 = () => {
     fetchPosts()
   }, [])
   //  
-  console.log("blogPost", blogPost)
+  // console.log("blogPost", blogPost)
   // 
   const keys = Object.keys(blogPost).map(item => item);
   // 
@@ -85,9 +85,9 @@ const Navbar1 = () => {
                 {/*  */}
                 {
                   keys.map((item, id) => (
-                    <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2 text-white"
+                    <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 capitalize" : "max-md:p-2 text-white capitalize"
 
-                    } href={item} key={id}> {item}</Link>
+                    } href={item} key={id}> {item.replace("-", " ")}</Link>
                   ))
                 }
                 {/*  */}
@@ -130,9 +130,9 @@ const Navbar1 = () => {
 
                     {
                       keys.map((item, id) => (
-                        <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2 text-white"
+                        <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 capitalize " : "max-md:p-2 text-white capitalize"
 
-                        } href={item} key={id}> {item}</Link>
+                        } href={item} key={id}> {item.replace("-", " ")}</Link>
                       ))
                     }
 

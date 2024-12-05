@@ -113,8 +113,8 @@ const ManageSingleBlog = ({ params }) => {
     }
   };
   //
-  console.log("Id = ", singleUserId);
-  console.log("singleData = ", singleData);
+  // console.log("Id = ", singleUserId);
+  // console.log("singleData = ", singleData);
   useEffect(() => {
     fetchData();
   }, []);
@@ -189,7 +189,7 @@ const ManageSingleBlog = ({ params }) => {
   //
   const editorRef = useRef();
   useEffect(() => {
-    console.log(editorRef.current);
+    // console.log(editorRef.current);
   }, []);
   //
   return (

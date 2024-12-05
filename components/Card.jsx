@@ -10,7 +10,7 @@ const Card = ({ blogPost }) => {
   const combinedData1 = Object.entries(blogPost).flatMap(([category, items]) =>
     (items || []).map((item) => ({ ...item, category }))
   );
-  console.log("blogBlog", combinedData1);
+  // console.log("blogBlog", combinedData1);
   //
   // const [data, setData] = useState([]);
   // const [loading, setLoading] = useState(true);

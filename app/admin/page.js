@@ -7,7 +7,7 @@ const Admin = dynamic(() => import("@/components/Admin"), {
 });
 
 const page = () => {
-  console.log("admin");
+  // console.log("admin");
   return (
    <>
    <Admin/>

@@ -21,13 +21,13 @@ const Navbar = () => {
     fetchPosts()
   }, [])
   //  
-  console.log("blogPost", blogPost)
+  // console.log("blogPost", blogPost)
   // 
   const keys = Object.keys(blogPost).map(item => item);
   // 
 
   // 
-  console.log("keys value", keys);
+  // console.log("keys value", keys);
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden"; // disable scrolling
@@ -85,9 +85,9 @@ const Navbar = () => {
               <ul className="absolute  nav_item_child w-[200px] flex flex-col opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300  bg-[#0033a0] p-2 cursor-pointer  ">
                 {
                   keys.map((item, id) => (
-                    <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2"
+                    <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 capitalize " : "max-md:p-2 capitalize"
 
-                    } href={item} key={id}> {item}</Link>
+                    } href={item} key={id}> {item.replace("-"," ")}</Link>
                   ))
                 }
                 {/* <Link
@@ -126,9 +126,9 @@ const Navbar = () => {
                   <ul className="absolute  nav_item_child w-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300  bg-[#0033a0] p-2 top-10 flex flex-col">
                     {
                       keys.map((item, id) => (
-                        <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 " : "max-md:p-2"
+                        <Link className={router.pathname === "/" ? "text-[#ffcd16] max-md:p-2 capitalize" : "max-md:p-2 capitalize"
 
-                        } href={item} key={id}> {item}</Link>
+                        } href={item} key={id}> {item.replace("-"," ")}</Link>
                       ))
                     }
 

@@ -39,8 +39,8 @@ const ManageBlog = () => {
     useEffect(() => {
         fetchData();
     }, []);
-    console.log(blogId);
-    console.log(data);
+    // console.log(blogId);
+    // console.log(data);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
     //
@@ -51,7 +51,7 @@ const ManageBlog = () => {
                 `https://submitform.acedigitalsolution.com/airlines_api/delete_blog.php?id=${id}`
             )
             .then((response) => {
-                console.log(response);
+                // console.log(response);
                 fetchData();
                 alert("Blog Deleted Successfully");
             })

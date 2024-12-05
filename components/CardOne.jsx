@@ -14,7 +14,7 @@ const CardOne = ({ blogPost }) => {
     ([category, items]) =>
       (items || []).map((item) => ({ ...item, category }))
   );
-  console.log("blogBlog", combinedData1);
+  // console.log("blogBlog", combinedData1);
   // 
   const category1 = combinedData1.reduce((acc, current) => {
     if (!acc.find((item) => item.category === current.category)) {

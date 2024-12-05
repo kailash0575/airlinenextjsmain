@@ -9,7 +9,7 @@ const BlogPage = ({ params }) => {
   // const unwrappedParams = use(params);
 
   const category = params.slug;
-  console.log(category);
+  // console.log(category);
   // https://submitform.acedigitalsolution.com/airlines_api/all_post_fetch.php?category=my-airlines
   //
   const [data, setData] = useState([]);
@@ -40,7 +40,7 @@ const BlogPage = ({ params }) => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log("total category blog", data);
+  // console.log("total category blog", data);
   //
   if (loading) return <div>Loading...</div>
   if (error) return <div>{error}</div>

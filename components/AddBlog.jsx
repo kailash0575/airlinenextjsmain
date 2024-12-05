@@ -83,7 +83,7 @@ const AddBlog = () => {
     formData.append("blog_description", data.blog_description);
     formData.append("image_alt_tag", data.image_alt_tag);
 
-    console.log(formData);
+    // console.log(formData);
     try {
       const response = await axios.post(
         "https://submitform.acedigitalsolution.com/airlines_api/add_blog.php",
@@ -109,9 +109,9 @@ const AddBlog = () => {
   const editorRef = useRef();
   const contentRef = useRef();
   const [value, setValue] = useState("");
-  useEffect(() => {
-    console.log(editorRef.current);
-  }, []);
+  // useEffect(() => {
+  //   console.log(editorRef.current);
+  // }, []);
 
   // const onImageUploadError = (errorMessage, result, core) => {
   //   alert(errorMessage);
@@ -127,7 +127,7 @@ const AddBlog = () => {
   }, [value]);
 
   const onChangeHandler = (content) => {
-    console.log(content);
+    // console.log(content);
     setValue(content);
   };
   //

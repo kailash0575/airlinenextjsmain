@@ -6,7 +6,7 @@ import axios from "axios";
 import "react-quill/dist/quill.snow.css";
 import JoditEditor from "jodit-react";
 //
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 //
 import SunEditor from "suneditor-react";
@@ -101,7 +101,7 @@ const ManageSingleBlog = ({ params }) => {
           },
           body: JSON.stringify(data),
         }
-        
+
       );
       alert("Blog Has Been Updated");
       router.push("/admin/manageBlog");

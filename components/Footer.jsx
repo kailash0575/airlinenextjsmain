@@ -30,13 +30,7 @@ const Footer = () => {
                 <p className="text-2xl mb-5  font-bold	text-[#ffcd16]	">
                   Latest Pages
                 </p>
-                <Link
-                  className="list-none hover:underline cursor-pointer"
-                  href="/american-airlines/a-guide-on-american-airlines-boston-logan-international-airport"
-                >
-                  {" "}
-                  American Airlines BOS Terminal
-                </Link>
+              
                 <Link
                   className="list-none hover:underline cursor-pointer"
                   href="/american-airlines/get-details-on-sfo-american-airlines-terminal"
@@ -52,13 +46,7 @@ const Footer = () => {
                 <p className="text-2xl mb-5	 font-bold text-[#ffcd16] w-[250px] max-sm:w-full">
                   Popular Terminals
                 </p>
-                <Link
-                  className="list-none hover:underline cursor-pointer"
-                  href="/american-airlines/a-guide-on-american-airlines-boston-logan-international-airport"
-                >
-                  {" "}
-                  American Airlines BOS Terminal
-                </Link>
+               
                 <Link className="list-none hover:underline cursor-pointer" href="/american-airlines/get-details-on-sfo-american-airlines-terminal">
                   {" "}
                   American Airlines   SFO Terminal

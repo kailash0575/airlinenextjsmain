@@ -26,7 +26,7 @@ export default function Home() {
     fetchPosts()
   }, [])
 
-  if (!blogPost) return <div>Loading...</div>
+  if (!blogPost) return <div>Loading....</div>
   // 
   return (
     <div>
@@ -39,7 +39,7 @@ export default function Home() {
         <div className="main_section_container    text-white  ">
           <Navbar />
           <Hero />
-        </div>
+        </div>  
         {/*  */}
 
         {/*  */}

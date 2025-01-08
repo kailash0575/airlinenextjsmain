@@ -114,7 +114,7 @@ const Navbar = () => {
                   <Link href="/">Home</Link>
                 </li>
                 <li className="p-4 max-md:p-2">
-                  <Link href="/">Blog</Link>
+                  <Link href="/blog">Blog</Link>
                 </li>
 
                 <li className="p-4 max-md:p-2 relative">

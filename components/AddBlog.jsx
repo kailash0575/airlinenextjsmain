@@ -163,6 +163,13 @@ const AddBlog = () => {
                   {/*  */}
                   <option
                     value="
+                 blog" defaultValue
+                  >
+                    Blog
+                  </option>
+
+                  <option
+                    value="
                  frontier-airlines" defaultValue
                   >
                     Frontier Airlines

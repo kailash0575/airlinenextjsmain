@@ -26,7 +26,7 @@ export default function Home() {
     fetchPosts()
   }, [])
 
-  if (!blogPost) return <div>Loading....</div>
+  if (!blogPost) return <div>Loading.....</div>
   // 
   return (
     <div>
